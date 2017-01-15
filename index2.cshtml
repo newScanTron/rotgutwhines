@@ -1,0 +1,103 @@
+@using System;
+@using D = System.Data;
+@using c = System.Data.SqlClient;
+<!DOCTYPE html>
+<html itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <meta content="We are Rotgut Whines of Montana, USA. The world's only.... Finger Pickin' Soul n' Roll" name="description">
+    <meta content="noodp" name="robots">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="author" content="Chris Murphy">
+    <title>ROTGUT WHINES</title>
+    <!--style-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+     <link href="style.css" rel="stylesheet" />
+    <!--javascript-->
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    
+   
+</head>
+<body>
+    <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1132558003504602',
+      xfbml      : true,
+      version    : 'v2.7'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+   
+var bandId = 365299513675005;
+var token = "";
+   var anom = function(){
+   
+   FB.getLoginStatus(function(response) 
+   {
+     console.log(response.status);
+    if (response.status === 'connected') 
+   {
+    var token = response.authResponse.accessToken;
+    console.log(token);
+  } 
+  else if (response.status === 'not_authorized')
+  {
+    FB.login(function(response) 
+      {
+    if (response.authResponse) 
+    {
+     console.log('Welcome!  Fetching your information.... ');
+     FB.api('/me', function(response) 
+       {
+       console.log('Good to see you, ' + response.name + '.');
+     });
+    } 
+    else 
+    {
+     console.log('User cancelled login or did not fully authorize.');
+    }
+});
+
+  }
+  
+} );
+   
+   
+   FB.api('/365299513675005/events', function(response) {
+  console.log(response);
+    document.getElementById('events').innerHTMTL(response.data[0].name);  
+  
+} , {access_token: token});
+   }
+
+</script>
+  
+  <div class="container content" id="mainDiv">
+  
+    <div itemscope itemtype="http://schema.org/band" id='events'>
+       <iframe src="http://www.fanrx.com/facebook/events.php?theme=zuck&page=rotgut-whines&bgcolor=ffffff&textcolor=000000&linkcolor=555555&max=5" width="320" height="220" frameborder="no" scrolling="auto"></iframe>
+    </div>
+    
+    <div id="LikeShare">
+      <div class="fb-like" data-href="http://www.rotgutwhines.com/" data-width="40" data-layout="button_count" data-action="like" data-size="large" data-show-faces="false" data-share="true"></div>
+      <div class="fb-follow" data-href="https://www.facebook.com/rotgutwhines/" data-width="200" data-height="20" data-layout="button_count" data-size="large" data-show-faces="true"></div>
+    </div>
+    <a onclick="anom();">Anom</a>
+  </div>
+</body>
+</html>

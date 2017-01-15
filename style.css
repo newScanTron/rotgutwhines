@@ -1,0 +1,96 @@
+
+
+body {
+background-color: white;
+
+}
+
+
+iframe {
+  margin-bottom: 60px;
+}
+.container {
+  width: 100%;
+  max-width: 960px;
+  margin-top: 150px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.center {
+  text-align: center;
+}
+#mainDiv,
+#aboutUsSpacer {
+	padding-bottom: 10px;	
+  position: fixed;
+  padding-left: 0px;
+  top: 0px;
+  width: 100%;
+  max-width: 960px;
+  background-color: white;
+  height: 120px;
+}
+#mainDiv > h1, #mainDiv > a {
+  padding: 5px;
+  background-color: #ffffff;
+  margin-bottom: 10px;
+
+}
+#mainDiv > div {
+  display: inline-block;
+}
+#nav > a {
+  padding-left: 5px;
+  text-decoration: none;
+}
+#navSoc {
+  float: right;
+  padding-right: 30px;
+
+}
+#aboutUs {
+  
+}
+a.anchor {
+    display: block;
+    position: relative;
+    top: -135px;
+    visibility: hidden;
+}
+#instaMobile {
+    display: none;
+  }
+a {
+  text-decoration: none;
+  color: black
+}
+#mainDiv > a:hover {
+  background-color: #aaaaaa
+}
+
+/*this checks for a screen size of max-width: 960px and when the screen is samller these styles will take effect*/
+@media (max-width: 960px)
+{
+  #mainDiv > a {
+    margin-bottom: 0px;
+    padding-left: 0px;
+  }
+  #instaMobile {
+    display: inline-block;
+  }
+  #instaDesk {
+    display: none;
+  }
+  body {
+    background-size: 100% auto;
+    -webkit-background-size: 100% auto;
+  -moz-background-size: 100% auto;
+  -o-background-size: 100% auto;
+  }
+}
+@media (max-width: 760px) {
+  .HideMobile {
+    display: none;
+  }
+}
